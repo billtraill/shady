@@ -1,4 +1,4 @@
-module github.com/polyfloyd/shady
+module github.com/billtraill/shady
 
 require (
 	github.com/fsnotify/fsnotify v1.4.7
