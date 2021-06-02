@@ -8,6 +8,11 @@ development and hacking.
 
 ## Usage
 ### Installation
+To build this version 
+```sh
+go get -u github.com/billtraill/shady/cmd/shady
+```
+To get the upstrean version
 ```sh
 go get -u github.com/polyfloyd/shady/cmd/shady
 ```
