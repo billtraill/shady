@@ -12,9 +12,13 @@ To build this version
 ```sh
 go get -u github.com/billtraill/shady/cmd/shady
 ```
+Currently working on webservice interface to imu (Inertial Measurement Unit) or motion sensor. See also https://github.com/billtraill/whichwaysup which provides an example webservice for Raspberry Pi using an Adafruit BNO085. May change this to be a generic webservice json interface to be able to inject any unifom into 'glsl' shaders.
+
+
+
 To get the upstrean version
 ```sh
-go get -u github.com/billtraill/shady/cmd/shady
+go get -u github.com/polyfloyd/shady/cmd/shady
 ```
 
 ### Shadertoy
@@ -180,6 +184,28 @@ Internally, libfreenect is used which only supports the earlier Kinect versions
 for the XBox 360.
 
 
+#### The "imu" loader
+Work in progress...
+
+This provides an interface to a imu via a webservice. It should be easly to adapt a webservice 
+for any imu.
+The uniforms that are added are prefixed with the map name. 
+
+These are (assuming the name is imu):
+- uniform vec3 imuAcceleration
+- uniform vec3 imuGyro
+- uniform vec3 imuMagnetometer
+- uniform vec4 imuQuaternione
+- uniform bool imu Shake 
+
+Example: Map `imu` to a webservice:
+```glsl
+#pragma map imu=imu:http://localhost:8080/
+```
+May change this to be a generic uniform injector from a webservice.
+
+Currently the webservice is polled every 1/10 second. TODO make this configurable.
+
 ## Combining with other tools
 ### Ledcat
 [Ledcat](https://github.com/billtraill/ledcat) is a program that can be used to
@@ -270,6 +296,16 @@ wrapping with a preprocessor macro:
 #ifdef GL_ES
 precision mediump float;
 #endif
+```
+
+### failed to call eglCreateContext
+```
+2021/06/02 16:15:37 initEGL  display.CreateContext: failed to call eglCreateContext
+2021/06/02 16:15:37 Couldn't initialize engine: failed to call eglCreateContext
+```
+On a Raspberry Pi 4 this error is caused by not having env variable MESA_GL_VERSION_OVERRIDE set, try
+```
+export MESA_GL_VERSION_OVERRIDE=3.3
 ```
 
 
