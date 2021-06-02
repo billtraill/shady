@@ -1,6 +1,6 @@
 Shady
 =====
-[![Build Status](https://github.com/polyfloyd/shady/workflows/CI/badge.svg)](https://github.com/polyfloyd/shady/actions)
+[![Build Status](https://github.com/billtraill/shady/workflows/CI/badge.svg)](https://github.com/billtraill/shady/actions)
 
 Shady is a nifty CLI tool for rendering GLSL fragment shaders for easy
 development and hacking.
@@ -14,7 +14,7 @@ go get -u github.com/billtraill/shady/cmd/shady
 ```
 To get the upstrean version
 ```sh
-go get -u github.com/polyfloyd/shady/cmd/shady
+go get -u github.com/billtraill/shady/cmd/shady
 ```
 
 ### Shadertoy
@@ -182,7 +182,7 @@ for the XBox 360.
 
 ## Combining with other tools
 ### Ledcat
-[Ledcat](https://github.com/polyfloyd/ledcat) is a program that can be used to
+[Ledcat](https://github.com/billtraill/ledcat) is a program that can be used to
 control lots of LEDs over lots of protocols. Shady can be combined with Ledcat
 to bring the fireworks to your LED-displays!
 

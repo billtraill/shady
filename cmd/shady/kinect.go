@@ -3,5 +3,5 @@
 package main
 
 import (
-	_ "github.com/polyfloyd/shady/shadertoy/kinect"
+	_ "github.com/billtraill/shady/shadertoy/kinect"
 )

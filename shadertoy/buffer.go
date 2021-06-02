@@ -7,7 +7,7 @@ import (
 
 	"github.com/go-gl/gl/v3.3-core/gl"
 
-	"github.com/polyfloyd/shady/renderer"
+	"github.com/billtraill/shady/renderer"
 )
 
 func init() {

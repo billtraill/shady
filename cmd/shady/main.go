@@ -21,14 +21,14 @@ import (
 
 	"github.com/fsnotify/fsnotify"
 
-	"github.com/polyfloyd/shady/encode"
-	"github.com/polyfloyd/shady/renderer"
-	"github.com/polyfloyd/shady/shadertoy"
-	_ "github.com/polyfloyd/shady/shadertoy/audio"
-	_ "github.com/polyfloyd/shady/shadertoy/image"
-	_ "github.com/polyfloyd/shady/shadertoy/peripheral"
-	_ "github.com/polyfloyd/shady/shadertoy/imu"
-	_ "github.com/polyfloyd/shady/shadertoy/video"
+	"github.com/billtraill/shady/encode"
+	"github.com/billtraill/shady/renderer"
+	"github.com/billtraill/shady/shadertoy"
+	_ "github.com/billtraill/shady/shadertoy/audio"
+	_ "github.com/billtraill/shady/shadertoy/image"
+	_ "github.com/billtraill/shady/shadertoy/imu"
+	_ "github.com/billtraill/shady/shadertoy/peripheral"
+	_ "github.com/billtraill/shady/shadertoy/video"
 )
 
 func main() {

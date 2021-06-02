@@ -168,7 +168,7 @@ func (f AnsiDisplay) Encode(w io.Writer, img image.Image) error {
 
 func (f *AnsiDisplay) EncodeAnimation(w io.Writer, stream <-chan image.Image, interval time.Duration) error {
 	// This implementation is taken from Ledcat:
-	// https://github.com/polyfloyd/ledcat
+	// https://github.com/billtraill/ledcat
 
 	lastFrame := time.Now()
 	for img := range stream {
