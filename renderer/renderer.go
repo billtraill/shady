@@ -57,18 +57,23 @@ var initGLOnce sync.Once
 func initEGL(glVersion OpenGLVersion) error {
 	display, err := egl.GetDisplay(egl.DefaultDisplay)
 	if err != nil {
+		log.Printf("initEGL  egl.GetDisplay: %v  ", err)
 		return err
 	}
 	surface, err := display.CreateSurface(1<<12, 1<<12)
 	if err != nil {
+		log.Printf("initEGL  display.CreateSurface: %v  ", err)
 		return err
 	}
 	if err := display.BindAPI(egl.OpenGLAPI); err != nil {
+		log.Printf("initEGL  display.BindAPI: %v  ", err)
 		return err
 	}
 	glMajor, glMinor := glVersion.majorMinor()
+	//log.Printf("initEGL  glMajor: %v  glMinor", glMajor, glMinor)
 	glContext, err := display.CreateContext(surface, glMajor, glMinor)
 	if err != nil {
+		log.Printf("initEGL  display.CreateContext: %v ", err)
 		return err
 	}
 	glContext.MakeCurrent()
@@ -77,6 +82,7 @@ func initEGL(glVersion OpenGLVersion) error {
 
 func initOpenGL() error {
 	if err := gl.Init(); err != nil {
+		log.Printf("gl.Init error: %v  ", err)
 		return err
 	}
 
@@ -128,6 +134,8 @@ func NewShader(width, height uint, glVersion OpenGLVersion) (*Shader, error) {
 			err = initOpenGL()
 			if err == nil {
 				err = initEGL(glVersion)
+			} else {
+				log.Printf("initOpenGL err: %v  ", err)
 			}
 		})
 	}

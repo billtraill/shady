@@ -27,6 +27,7 @@ import (
 	_ "github.com/polyfloyd/shady/shadertoy/audio"
 	_ "github.com/polyfloyd/shady/shadertoy/image"
 	_ "github.com/polyfloyd/shady/shadertoy/peripheral"
+	_ "github.com/polyfloyd/shady/shadertoy/imu"
 	_ "github.com/polyfloyd/shady/shadertoy/video"
 )
 
@@ -157,7 +158,7 @@ func main() {
 	if *outputFormat == "x11" {
 		engine, err := renderer.NewOnScreenEngine(openGLVersion)
 		if err != nil {
-			log.Fatalf("Could initialize engine: %v", err)
+			log.Fatalf("Couldn't initialize engine: %v", err)
 		}
 		defer engine.Close()
 
@@ -187,7 +188,7 @@ func main() {
 
 	engine, err := renderer.NewShader(width, height, openGLVersion)
 	if err != nil {
-		log.Fatalf("Could initialize engine: %v", err)
+		log.Fatalf("Couldn't initialize engine: %v", err)
 	}
 	defer engine.Close()
 
